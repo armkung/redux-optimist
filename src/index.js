@@ -93,6 +93,7 @@ function optimist(fn) {
           }
         }
         if (gotInitialState) {
+          currentState = fn(currentState, entry.action);
           validateState(innerState, action);
         }
       }
