@@ -25,11 +25,9 @@ function optimist(fn) {
     var optimist = _separateState.optimist;
     var innerState = _separateState.innerState;
 
-    if(action){
-      optimist = optimist.concat([{ beforeState: innerState, action: action }]);
-      innerState = fn(innerState, action);
-      validateState(innerState, action);
-    }
+    optimist = optimist.concat([{ beforeState: innerState, action: action }]);
+    innerState = fn(innerState, action);
+    validateState(innerState, action);
     
     return _extends({ optimist: optimist }, innerState);
   }
